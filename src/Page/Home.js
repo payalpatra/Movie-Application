@@ -83,22 +83,22 @@ function Home() {
 
     }, [q]);
 
-    // console.log(user.displayName)
+
 
     return (
         <Layout className="layout">
             <Header style={{ background: "#00613C", marginBottom: "20px" }}>
-                    {/* <TextTitle style={{ color: '#ffff', marginTop: '14px' }} level={7}>{user.displayName}</TextTitle>
-                     */}
-                    <span style={{ color: '#ffff' ,  marginTop: '10px', margin: '0px 150px', fontSize: '15px' , float: 'left' , display : 'flex' }} level={1}>
-                    <img style={{ height : "40px", width : "40px"}}  src = "" alt = ""></img>
+
+                <span style={{ color: '#ffff', marginTop: '10px', fontSize: '20px', float: 'left', display: 'flex', justifyContent: 'center' }} level={1}>
+
+                    <img style={{ height: "50px", width: "50px", marginLeft: "100px", marginRight: "10px", borderRadius: "20px" }} src={user.photoURL} alt=""></img>
                     {user.displayName}</span>
-                <div style={{  display : 'flex' , justifyContent : 'center' }}>
-                    
-                    <TextTitle style={{ color: '#ffff', marginTop: '14px' , alignItems: "center" }} level={7}>Entertainment Hub {" "}  </TextTitle>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+
+                    <TextTitle style={{ color: '#ffff', marginTop: '14px', marginRight: "300px", alignItems: "center" }} level={7}>Entertainment Hub {" "}  </TextTitle>
                 </div>
-            
-                
+
+
             </Header>
             <SearchBox style={{ marginTop: '40px' }} searchHandler={setQuery} />
             <br />
