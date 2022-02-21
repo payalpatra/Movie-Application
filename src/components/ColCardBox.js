@@ -11,7 +11,7 @@ const API_KEY = '70a1359b';
 const { Meta } = Card;
 
 
-function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal, playlist, setPlaylist }) {
+function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal, setPlaylist }) {
     const clickHandler = () => {
 
         // Display Modal and Loading Icon
@@ -40,7 +40,7 @@ function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
         }
         playlist.push(newPlayList);
         localStorage.setItem("playlist", JSON.stringify(playlist));
-        
+
     }
 
     return (

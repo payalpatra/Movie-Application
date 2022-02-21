@@ -44,8 +44,7 @@ function Home() {
 
 
     const playlist = JSON.parse(localStorage.getItem("playlist"));
-
-
+    const [PlayList, setPlayList] = useState(playlist);
 
     useEffect(() => {
 
@@ -80,30 +79,24 @@ function Home() {
     return (
         <Layout className="layout">
             <Header style={{ background: "#00613C", marginBottom: "20px" }}>
-
                 <span style={{ color: '#ffff', marginTop: '10px', fontSize: '20px', float: 'left', display: 'flex', justifyContent: 'center' }} level={1}>
                     <img style={{ height: "50px", width: "50px", marginLeft: "100px", marginRight: "10px", borderRadius: "20px" }} src={user.photoURL} alt=""></img>
                     {user.displayName}
                 </span>
-
-
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
                     <TextTitle style={{ color: '#ffff', marginTop: '14px', marginRight: "300px", alignItems: "center" }} level={7}>Entertainment Hub {" "}  </TextTitle>
                 </div>
-
-
             </Header>
             <SearchBox style={{ marginTop: '40px' }} searchHandler={setQuery} />
             <br />
-
             <Content style={{ padding: '0 50px' }}>
                 <div style={{ background: 'black', padding: 24, minHeight: 0 }}>
 
                     <TextTitle style={{ color: '#fff', margin: '0px 150px' }} level={6}>Favourites</TextTitle>
                     <Row gutter={16} type="flex" justify="center">
-                        {playlist.length ===0  ?(<span style={{ color: 'white', margin: '0px 150px', justifyContent: 'center', alignItems: 'center' }} >
-                            Add Your Favourite Movies </span>) : playlist.map((result, index) => (
+                        {PlayList.length === 0 ? (<span style={{ color: 'white', margin: '0px 150px', justifyContent: 'center', alignItems: 'center' }} >
+                            Add Your Favourite Movies </span>) : PlayList.map((result, index) => (
                                 <AddToFavourites
                                     ShowDetail={setShowDetail}
                                     DetailRequest={setDetailRequest}
@@ -112,16 +105,11 @@ function Home() {
                                     {...result}
                                 />
                             ))}
-
                     </Row>
-                
                 </div>
             </Content>
-
             <Content style={{ padding: '0 50px' }}>
                 <div style={{ background: 'black', padding: 24, minHeight: 280 }}>
-
-
 
                     <TextTitle style={{ color: '#fff', margin: '0px 150px' }} level={6}>Movies</TextTitle>
                     <Row gutter={16} type="flex" justify="center">
@@ -142,7 +130,7 @@ function Home() {
                                 ActivateModal={setActivateModal}
                                 key={index}
                                 {...result}
-
+                                setPlayList={setPlayList}
                             />
                         ))}
                     </Row>

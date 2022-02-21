@@ -15,6 +15,13 @@ const { Meta } = Card;
 
 function AddToFavourites({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal }) {
 
+    const RemoveFromPlaylist = () => {
+        const playlist = JSON.parse(localStorage.getItem("playlist"));
+        const newPlayList = playlist.filter((fav) => fav.imdbID !== imdbID)
+        localStorage.setItem("playlist", JSON.stringify(newPlayList));
+
+    }
+
     const clickHandler = () => {
 
         // Display Modal and Loading Icon
@@ -39,22 +46,22 @@ function AddToFavourites({ Title, imdbID, Poster, Type, ShowDetail, DetailReques
                 <Card
                     style={{ width: 235, padding: '5px', background: "rgba(0, 0, 0, 0.10)" }}
                     cover={
-                        <img
+                        <img onClick={() => clickHandler()}
                             alt={Title}
                             src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
                         />
                     }
-                    onClick={() => clickHandler()}
+
                 >
                     <Meta style={{ background: '#fff', padding: "5px", border: '1px solid black', borderRadius: "6px" }}
                         title={Title}
                         description={false}
                     />
                     <Row style={{ marginTop: '10px' }} className="gutter-row">
-                        <Col>
+                        <Col style={{ display: "flex" }}>
                             <Tag color="magenta">{Type}</Tag>
+                            <button onClick={RemoveFromPlaylist} style={{ fontSize: "13px", border: '1px solid black', borderRadius: '5px', background: "rgb(255, 255, 255)" }}>Remove</button>
                         </Col>
-
                     </Row>
                 </Card>
             </div>
