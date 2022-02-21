@@ -14,6 +14,7 @@ const { Meta } = Card;
 
 
 function AddToFavourites({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal }) {
+
     const clickHandler = () => {
 
         // Display Modal and Loading Icon

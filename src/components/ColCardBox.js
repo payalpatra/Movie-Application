@@ -11,7 +11,7 @@ const API_KEY = '70a1359b';
 const { Meta } = Card;
 
 
-function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal }) {
+function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal, playlist, setPlaylist }) {
     const clickHandler = () => {
 
         // Display Modal and Loading Icon
@@ -28,6 +28,19 @@ function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
             .catch(({ message }) => {
                 DetailRequest(false);
             })
+    }
+
+    const addToPlayList = () => {
+        const playlist = JSON.parse(localStorage.getItem("playlist"));
+        const newPlayList = {
+            Poster: Poster,
+            Title: Title,
+            Type: Type,
+            imdbID: imdbID
+        }
+        playlist.push(newPlayList);
+        localStorage.setItem("playlist", JSON.stringify(playlist));
+        
     }
 
     return (
@@ -50,7 +63,7 @@ function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
                     <Row style={{ marginTop: '10px' }} className="gutter-row">
                         <Col style={{ display: "flex" }}>
                             <Tag color="magenta">{Type}</Tag>
-                            <button  style={{fontSize : "13px", border: '1px solid black', borderRadius: '5px', background: "rgb(255, 255, 255)"}}>Add To Favourites</button>
+                            <button onClick={addToPlayList} style={{ fontSize: "13px", border: '1px solid black', borderRadius: '5px', background: "rgb(255, 255, 255)" }}>Add To Favourites</button>
                         </Col>
                     </Row>
                 </Card>
@@ -60,3 +73,4 @@ function ColCardBox({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
 }
 
 export default ColCardBox
+

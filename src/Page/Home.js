@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import {
-    Layout,
     Row,
+    Layout,
     Spin,
     Alert,
     Modal,
@@ -26,7 +26,11 @@ const Loader = () => (
     </div>
 )
 
+
+
+
 function Home() {
+
 
     const [{ user }] = useStateValue();
 
@@ -37,22 +41,10 @@ function Home() {
     const [activateModal, setActivateModal] = useState(false);
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
-    const [playlist, setPlaylist] = useState([
-        {
-            Poster: "https://m.media-amazon.com/images/M/MV5BZDc3NGQ3ZWQtYjNkOC00MjhiLTg2N2YtNmZlOGNiZTFkOWNhXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg",
-            Title: "JoJo's Bizarre Adventure",
-            Type: "series",
-            Year: "2012–",
-            imdbID: "tt2359704"
-        }, {
-            Poster: "https://m.media-amazon.com/images/M/MV5BZDc3NGQ3ZWQtYjNkOC00MjhiLTg2N2YtNmZlOGNiZTFkOWNhXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg",
-            Title: "JoJo's Bizarre Adventure",
-            Type: "series",
-            Year: "2012–",
-            imdbID: "tt2359704"
-        }
 
-    ])
+
+    const playlist = JSON.parse(localStorage.getItem("playlist"));
+
 
 
     useEffect(() => {
@@ -90,9 +82,11 @@ function Home() {
             <Header style={{ background: "#00613C", marginBottom: "20px" }}>
 
                 <span style={{ color: '#ffff', marginTop: '10px', fontSize: '20px', float: 'left', display: 'flex', justifyContent: 'center' }} level={1}>
-
                     <img style={{ height: "50px", width: "50px", marginLeft: "100px", marginRight: "10px", borderRadius: "20px" }} src={user.photoURL} alt=""></img>
-                    {user.displayName}</span>
+                    {user.displayName}
+                </span>
+
+
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
                     <TextTitle style={{ color: '#ffff', marginTop: '14px', marginRight: "300px", alignItems: "center" }} level={7}>Entertainment Hub {" "}  </TextTitle>
@@ -108,20 +102,19 @@ function Home() {
 
                     <TextTitle style={{ color: '#fff', margin: '0px 150px' }} level={6}>Favourites</TextTitle>
                     <Row gutter={16} type="flex" justify="center">
-                        {playlist !== null && playlist.length > 0 && playlist.map((result, index) => (
-                            <AddToFavourites
-                                ShowDetail={setShowDetail}
-                                DetailRequest={setDetailRequest}
-                                ActivateModal={setActivateModal}
-                                key={index}
-                                {...result}
-                            />
-                        ))}
+                        {playlist.length ===0  ?(<span style={{ color: 'white', margin: '0px 150px', justifyContent: 'center', alignItems: 'center' }} >
+                            Add Your Favourite Movies </span>) : playlist.map((result, index) => (
+                                <AddToFavourites
+                                    ShowDetail={setShowDetail}
+                                    DetailRequest={setDetailRequest}
+                                    ActivateModal={setActivateModal}
+                                    key={index}
+                                    {...result}
+                                />
+                            ))}
 
                     </Row>
-                    {playlist.length === 0 && <span style={{ color: 'white', margin: '0px 150px', justifyContent: 'center', alignItems: 'center' }} >
-                        Add Your Favourite Movies To The Playlist</span>
-                    }
+                
                 </div>
             </Content>
 
@@ -149,6 +142,7 @@ function Home() {
                                 ActivateModal={setActivateModal}
                                 key={index}
                                 {...result}
+
                             />
                         ))}
                     </Row>
