@@ -1,4 +1,5 @@
-# Google Authenticated Movie Application 
+## Google Authenticated Movie Application 
+This is a react based movie application where you can search for movies, series or genre. You can click on the image of the movie to get all the details about it.The details consists of duration of the movie, its rating, type and the movie plot.
 
 ## Features
 * You can search for movies, series , genre etc. 
