@@ -1,17 +1,23 @@
 ## Google Authenticated Movie Application 
 This is a react based movie application where you can search for movies, series or genre. You can click on the image of the movie to get all the details about it.The details consists of duration of the movie, its rating, type and the movie plot.
 
+
 ## Features
 * You can search for movies, series , genre etc. 
 * Add Your Movies to Favourites. (Call it your movie playlist 😎)
 * Remove movies from your playlist.
 
-### Resources 
+## Resources 
 
 * Live Demo - [Netlify](https://brave-bose-739cc3.netlify.app/)
 * Logo Design - [Canva](https://www.canva.com/)
 * Movie API - [OMDB API](http://www.omdbapi.com/)
 * Google Authentication - [Firebase](https://firebase.google.com/)
+
+
+## Screenshots
+![2022-02-22](https://user-images.githubusercontent.com/67522406/155027903-7139859a-26ab-4d1c-a382-841ff6cf9c1b.png)
+![2022-02-22 (2)](https://user-images.githubusercontent.com/67522406/155027914-d23fc769-9277-4020-b0c1-668afb2260e1.png)
 
 ## Installation Guidelines
 
@@ -45,3 +51,11 @@ This is a react based movie application where you can search for movies, series 
 ```sh
  npm start
 ```
+
+## Author
+
+### Payal Patra
+
+<a href="https://linkedin.com/in/payalpatra105" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="payalpatra105" height="30" width="40" /></a>
+<a href="https://github.com/payalpatra" target="blank"><img align="center" src="https://www.svgrepo.com/show/68072/github-logo-face.svg" alt="payalpatra105" height="30" width="40" /></a>
+<a href="https://instagram.com/p_iconic_" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="p_iconic_" height="30" width="40" /></a>
